@@ -2,11 +2,11 @@ const express = require("express");
 const { NODE_ENV } = require("./config");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-
 const app = express();
 
 const authRoutes = require("./routes/auth.route");
 const userRoutes = require("./routes/user.route");
+const paymentRoutes = require("./routes/payment.route");
 
 app.use(
   cors({
@@ -35,6 +35,7 @@ app.get("/", (_, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/payment", paymentRoutes);
 
 // global error handling middleware
 app.use((err, req, res, next) => {
