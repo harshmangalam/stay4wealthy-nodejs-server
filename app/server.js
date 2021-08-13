@@ -7,6 +7,7 @@ const app = express();
 const authRoutes = require("./routes/auth.route");
 const userRoutes = require("./routes/user.route");
 const paymentRoutes = require("./routes/payment.route");
+const enquiryRoutes = require("./routes/enquiry.route");
 
 app.use(
   cors({
@@ -36,6 +37,7 @@ app.get("/", (_, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/enquiry", enquiryRoutes);
 
 // global error handling middleware
 app.use((err, req, res, next) => {
